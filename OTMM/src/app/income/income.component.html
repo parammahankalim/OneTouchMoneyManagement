@@ -1,0 +1,63 @@
+<div class="container">
+<h3>Income</h3>
+  <form>
+    <div class="form-group row">
+      <label for="date" class="col-sm-2 col-form-label">Date :</label>
+        <div class="col-sm-3">
+          <input type="date" class="form-control" id="date" placeholder="Date">
+        </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="category" class="col-sm-2 col-form-label">SourceCategory :</label>
+        <div class="col-sm-3">
+          <select class="form-control" id="category">
+            <option *ngFor="let c of categories$ | async" [value]="c.$key ">{{c.ctg_nm}}</option>
+          </select>
+          <a routerLink="/incomecategory">+</a>
+        </div>
+    </div>
+ 
+    <div class="form-group row">
+      <label for="toAccount" class="col-sm-2 col-form-label">ToAccount :</label>
+        <div class="col-sm-3">
+          <select class="form-control" id="toAccount">
+            <option>Select...</option>
+            <option>ICICI</option>
+            <option>HDFC</option>
+            <option>SBI</option>
+            <option>CityBank</option>
+            <option>AXIS</option>
+            <option>Cash</option>
+          </select>
+        </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="amount" class="col-sm-2 col-form-label">Amount :</label>
+        <div class=" col-sm-3 input-group-prepend">
+          <span class="input-group-text">$</span>
+          <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+        </div>
+        <div class="input-group-append">
+          <span class="input-group-text">.00</span>
+        </div>
+    </div>
+    
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Memo/Img :</label>      
+        <div class="col-sm-3">
+          <input type="file" ngModel name="mem" class="form-control-file" id="mem" (input)="mem=$event.target.value">
+        </div>
+    </div>
+    
+    <div class="form-group row">
+      <div class="col-sm-2">
+        <button type="submit" class="form-control btn btn-success">Save</button>
+      </div>
+      <div class="col-sm-2">
+        <button type="button" class="btn btn-secondary form-control">Continue</button>
+      </div>
+    </div>
+  </form>
+</div>
